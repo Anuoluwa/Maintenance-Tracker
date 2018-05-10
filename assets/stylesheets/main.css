@@ -100,20 +100,53 @@ header {
 
   }
 header nav ul li a {
-    font-size: 15px;
+    font-size: 16px;
+    text-transform:  uppercase;
+
    }
 
    header .header-login {
        display: none;
    }
-  
-  .primary-nav {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-  }
-  
+
+   @media only screen and (min-width: 1000px) {
+       
+    header .logo {
+        padding: 0px 20px 0px 40px;
+        margin: 31px 0 ;
+        text-align: left;
+        line-height: 38px;
+        border-right: 3px solid #111;
+        float: left;
+    }
+
+    header nav ul {
+
+        margin: 20px 0px 0px 20px; 
+        float: left;
+    
+      }
+     
+    header nav ul li a {
+        line-height: 60px;
+       }
+    
+       header .header-login {
+           display: block;
+           font-size: 16px;
+           color: #111;
+           text-transform:  uppercase;
+           line-height: 38px;
+           border: 1px solid #111;
+           float: right;
+           margin-right: 40px;
+           margin-top: 30px;
+           padding: 0 20px;
+       }
+
+   }
+
+
   
   /*
   ========================================
@@ -158,6 +191,7 @@ header nav ul li a {
   
   .index-links div {
       margin: 16px 16px 0;
+      padding-top: 15px;
       width: calc(100% - 32px);
       height: 150px;
       background-color: #f2f2f2;
@@ -175,6 +209,46 @@ header nav ul li a {
     font-weight: 500;
     font-size: 24px;
 }
+
+
+@media only screen and (min-width: 1000px) {
+    .wrapper{
+     width: 1000px;
+     margin: 0 auto;
+
+    }
+    .hero {
+        color: #fff;
+        width: 100%;
+        height: 500px;
+      }
+      .hero h2 {
+          display: block;
+          width: 560px;
+          margin: 0 auto;
+        
+      }
+      .index-links div {
+        margin: 16px 16px 0;
+        height:230px;
+        background-color: #f2f2f2;
+        float: left;
+    
+  
+        }
+
+      .index-boxlink {
+          width: calc(25% - 20px) !important;
+
+      }
+     
+       
+  
+
+   }
+
+
+
 
 /*
     ========================================
