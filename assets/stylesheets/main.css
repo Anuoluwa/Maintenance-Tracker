@@ -229,22 +229,22 @@ header nav ul li a {
         
       }
       .index-links div {
-        margin: 16px 16px 0;
+        margin: 20px 16px 0;
         height:230px;
         background-color: #f2f2f2;
         float: left;
-    
-  
         }
 
+        .index-links {
+            
+            overflow: hidden;
+            }
+    
+
       .index-boxlink {
-          width: calc(25% - 20px) !important;
+          width: calc(32% - 20px) !important;
 
       }
-     
-       
-  
-
    }
 
 
