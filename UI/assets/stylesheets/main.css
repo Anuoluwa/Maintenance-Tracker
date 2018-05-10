@@ -114,23 +114,7 @@ header nav ul li a {
     text-transform: uppercase;
   }
   
-  /*
-    ========================================
-    Primary footer
-    ========================================
-  */
   
-  .primary-footer {
-    color: #648880;
-    font-size: 14px;
-    padding-bottom: 44px;
-    padding-top: 44px;
-  }
-  .primary-footer small {
-    float: left;
-    font-weight: 400;
-  }
-
   /*
   ========================================
   Home
@@ -192,3 +176,31 @@ header nav ul li a {
     font-size: 24px;
 }
 
+/*
+    ========================================
+    Footer
+    ========================================
+  */
+  
+  footer {
+    width: calc(100% - 80px);
+    padding: 40px 40px;
+    margin-top: 20px;
+    background-color: #111;
+    overflow: hidden;
+  }
+  footer ul {
+    width: fit-content;
+    float: left;
+    padding-left: 20px;
+  }
+  footer ul li {
+    display: block;
+    list-style: none;
+  }
+  footer ul li a {
+    font-size: 16px;
+    color: #fff;
+    line-height: 30px;
+  }
+ 
