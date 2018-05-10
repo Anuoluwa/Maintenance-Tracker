@@ -457,10 +457,13 @@ header nav ul li a {
  margin-left: -200px;
  margin-top: -286px;
  padding: 150px 20px 100px 20px ;
+ 
 }
 
 .request-form-header {
+ margin-bottom: 28px;
  text-align: center;
+ padding-bottom: 15px;
 }
 
 .request-form .input-container {
@@ -477,26 +480,7 @@ header nav ul li a {
 .request-form .input:focus {
  outline: none;
 }
-#show-password {
- float: right;
- vertical-align: bottom;
- text-align: center;
- margin-top: 7px;
- cursor: pointer;
-}
-.request-form .forgot-password {
- float: right;
-}
-.request-form .rememberme-container {
- margin-top: 15px;
- padding: 0;
-}
-.request-form .rememberme-container input {
- margin-left: 0;
-}
-.request-form .rememberme span {
- vertical-align: top;
-}
+
 .request-form .button {
  margin-top: 15px;
  width: 100%;
@@ -541,6 +525,7 @@ header nav ul li a {
      margin-bottom: 10px;
      width: auto;
  }
+
  .request-form .input {
      width: 140px;
  }
