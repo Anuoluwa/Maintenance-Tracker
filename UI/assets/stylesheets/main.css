@@ -363,7 +363,50 @@ footer ul li a {
     line-height: 30px;
 }
 
-@media only screen and (min-width: 1000px) {}
+@media only screen and (min-width: 1000px) {
+    .footer {
+        color: #648880;
+        font-size: 14px;
+        padding-bottom: 44px;
+        padding-top: 44px;
+      }
+      .footer small {
+        float: left;
+        font-weight: 400;
+      }
+      footer ul {
+        width: fit-content;
+        float: right;
+        
+    }
+    footer ul li {
+        display: inline-block;
+        margin: 10px;
+      
+
+    }
+
+      /* footer {
+        width: calc(100% - 20px);
+        padding: 40px 40px;
+        margin-top: 20px;
+        background-color: #111;
+        overflow: hidden;
+    }
+    
+   
+    
+   
+    
+    footer ul li a {
+        font-size: 16px;
+        color: #fff;
+        line-height: 30px;
+    }
+    
+ */
+
+}
 
 /*
     ========================================
