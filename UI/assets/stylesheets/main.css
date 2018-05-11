@@ -211,6 +211,18 @@ header .header-request {
     header nav ul li a {
         line-height: 60px;
     }
+    header .header-login {
+         display: block;
+         font-size: 16px;
+         color: #111;
+         text-transform:  uppercase;
+         line-height: 38px;
+         border: 1px solid #111;
+         float: right;
+         margin-right: 40px;
+         margin-top: 30px;
+         padding: 0 20px;
+     }
     header .header-request {
         display: block;
         font-size: 16px;
