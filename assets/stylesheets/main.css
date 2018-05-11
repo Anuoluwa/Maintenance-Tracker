@@ -376,21 +376,12 @@ footer ul li a {
 }
 
 .background {
-<<<<<<< HEAD
 	filter: blur(15px);
 	-webkit-filter: blur(10px);
 	-moz-filter: blur(5px);
 	-o-filter: blur(5px);
 	-ms-filter: blur(5px);
 	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=5);
-=======
-    filter: blur(15px);
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5);
->>>>>>> 481bf7d37e429e3ea8e75e909a6f6edb2bc0f21a
 }
 
 .login-form-container {
