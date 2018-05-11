@@ -211,6 +211,18 @@ header .header-request {
     header nav ul li a {
         line-height: 60px;
     }
+    header .header-login {
+         display: block;
+         font-size: 16px;
+         color: #111;
+         text-transform:  uppercase;
+         line-height: 38px;
+         border: 1px solid #111;
+         float: right;
+         margin-right: 40px;
+         margin-top: 30px;
+         padding: 0 20px;
+     }
     header .header-request {
         display: block;
         font-size: 16px;
@@ -351,7 +363,51 @@ footer ul li a {
     line-height: 30px;
 }
 
-@media only screen and (min-width: 1000px) {}
+@media only screen and (min-width: 1000px) {
+    .footer {
+        color: #648880;
+        font-size: 14px;
+        padding-bottom: 44px;
+        padding-top: 44px;
+        
+      }
+      .footer small {
+        float: left;
+        font-weight: 400;
+      }
+      footer ul {
+        width: fit-content;
+        float: right;
+        
+    }
+    footer ul li {
+        display: inline-block;
+        margin: 10px;
+      
+
+    }
+
+      /* footer {
+        width: calc(100% - 20px);
+        padding: 40px 40px;
+        margin-top: 20px;
+        background-color: #111;
+        overflow: hidden;
+    }
+    
+   
+    
+   
+    
+    footer ul li a {
+        font-size: 16px;
+        color: #fff;
+        line-height: 30px;
+    }
+    
+ */
+
+}
 
 /*
     ========================================
@@ -395,6 +451,13 @@ footer ul li a {
     margin-top: -286px;
     padding: 150px 20px 100px 20px;
 }
+
+.login-form-content {
+    margin: 18px;
+
+}
+
+
 
 .login-form-header {
     text-align: center;
@@ -532,6 +595,11 @@ footer ul li a {
     margin-top: -286px;
     padding: 150px 20px 100px 20px;
 }
+.request-form-content {
+    margin: 18px;
+
+}
+
 
 .request-form-header {
     margin-bottom: 28px;
@@ -693,11 +761,34 @@ footer ul li a {
 
 .admin-details-card p  {
     margin: 10px;
-    color: #180633;
-    font-weight: 380;
+    color: #000;
+    font-weight: 400;
     line-height: 16px;
-    font-size: 18px;
+    font-size: 15px;
     
+}
+
+.admin-details-card h6  {
+    margin: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 14px;
+    
+}
+
+.admin-details-card h4  {
+    margin: 10px;
+    color:  #00B4CC;
+    font-weight: 600;
+    line-height: 16px;
+    font-size: 20px;
+    
+}
+.admin-details-card small  {
+    font-weight: 400;
+    color: #00B4CC;
+    line-height: 16px;
+    font-size: 20px;  
 }
 .admin-detail-title {
     margin: 30px 0px 0px 50px;
