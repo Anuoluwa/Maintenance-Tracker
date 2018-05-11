@@ -417,14 +417,6 @@ footer ul li a {
     outline: none;
 }
 
-#show-password {
-    float: right;
-    vertical-align: bottom;
-    text-align: center;
-    margin-top: 7px;
-    cursor: pointer;
-}
-
 .login-form .forgot-password {
     float: right;
 }
@@ -678,6 +670,12 @@ footer ul li a {
     }
 }
 
+/*
+    ========================================
+             Admin Details view
+    ========================================
+*/
+
 .info {
     color: blue;
 }
@@ -701,3 +699,64 @@ footer ul li a {
     font-size: 18px;
     
 }
+.admin-detail-title {
+    margin: 30px 0px 0px 50px;
+    font-size: 24px;
+    font-weight: 380;
+}
+
+.search {
+    width: 100%;
+    position: relative
+  }
+  
+  .searchTerm {
+    float: left;
+    width: 100%;
+    border: 3px solid  #00B4CC;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+    color: #00B4CC;
+  }
+  
+  .searchButton {
+    position: absolute;  
+    right: -50px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: right;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /*Resize the wrap to see the search bar change!*/
+  .wrap{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-0%, -550%);
+  }
+
+  @media only screen and (min-width: 600px) {
+    .wrap{
+        width: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-0%, -580%);
+      }
+    
+}
+
+ 
