@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Maintenance Tracker App </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/main.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+</head>
+
+<body>
+    <!-- Header -->
+
+    <header>
+
+        <h1 class="logo">
+            <a href="index.html">tracknance</a>
+        </h1>
+
+
+        <nav class="nav primary-nav">
+            <ul>
+                <li>
+                    <a href="About.html">How It Works</a>
+                </li>
+                <a href="requestDetails.html" class="header-login">All Requests</a>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Form -->
+    <div class="wrapper">
+        <div class="request-form-container" id="request-form">
+            <div class="request-form-content">
+                <div class="request-form-header">
+                    <h3>Request Form</h3>
+                </div>
+                <form method="post" action="" class="request-form">
+                    <div>
+                        <label for="name">Operations</label>
+                        <select name="operations" class="input" required>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="Repairs">Repairs</option>
+                        </select>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" class="input" name="date" placeholder="Complaint" required/>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="text" class="input" name="date" placeholder="Department" required/>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="request" class="input" name="office" placeholder="Office Number" required/>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" name="contact-person" id="contact-person" class="input" placeholder="Contact Staff" required />
+                    </div>
+                    <input type="submit" name="request" value="Submit" class="button" />
+                    <a href="index.html" class="register">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- <div class="wrapper">
+        <footer class="primary-footer">
+
+            <small>&copy; 2018 Tracknance Tracker</small>
+
+            <nav class="nav">
+                <ul class="footer-main">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="About.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="About.html">Admin</a>
+                    </li>
+
+                    <li>
+                        <a href="support.html">Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div> -->
+
+</body>
+
+</html>
