@@ -761,11 +761,34 @@ footer ul li a {
 
 .admin-details-card p  {
     margin: 10px;
-    color: #180633;
-    font-weight: 380;
+    color: #000;
+    font-weight: 400;
     line-height: 16px;
-    font-size: 18px;
+    font-size: 15px;
     
+}
+
+.admin-details-card h6  {
+    margin: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 14px;
+    
+}
+
+.admin-details-card h4  {
+    margin: 10px;
+    color:  #00B4CC;
+    font-weight: 600;
+    line-height: 16px;
+    font-size: 20px;
+    
+}
+.admin-details-card small  {
+    font-weight: 400;
+    color: #00B4CC;
+    line-height: 16px;
+    font-size: 20px;  
 }
 .admin-detail-title {
     margin: 30px 0px 0px 50px;
