@@ -369,6 +369,7 @@ footer ul li a {
         font-size: 14px;
         padding-bottom: 44px;
         padding-top: 44px;
+        
       }
       .footer small {
         float: left;
@@ -450,6 +451,13 @@ footer ul li a {
     margin-top: -286px;
     padding: 150px 20px 100px 20px;
 }
+
+.login-form-content {
+    margin: 18px;
+
+}
+
+
 
 .login-form-header {
     text-align: center;
@@ -587,6 +595,11 @@ footer ul li a {
     margin-top: -286px;
     padding: 150px 20px 100px 20px;
 }
+.request-form-content {
+    margin: 18px;
+
+}
+
 
 .request-form-header {
     margin-bottom: 28px;
