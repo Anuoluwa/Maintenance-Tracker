@@ -4,7 +4,7 @@
   "description": "api endpoints ",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node app.js",
+    "start": "nodemon --watch app.js --exec babel-node -- app.js",
     "test": "mocha --require babel-polyfill --require babel-register --reporter progress \" tests/**/*.spec.js\" ",
     "lint": " esw app.js models routes tests --color",
     "lint-watch": "npm run lint -- --watch"
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "eslint-watch": "^3.1.4",
-    "express": "^4.16.3",
-    "body-parser": "^1.18.3"
+    "nodemon": "^1.17.4"
   }
 }
