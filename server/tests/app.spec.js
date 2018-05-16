@@ -1,13 +1,21 @@
-import supertest from 'supertest';
-// import expect from 'chai';
-// import app from '../app';
+import { expect } from 'chai';
+import app from '../app';
+// import requests from '../models/db';
+// import chaiHttp from 'chai-http';
+const chai = require('chai');
 
-const url = supertest('http://localhost:3000');
+const chaiHttp = require('chai-http');
 
-describe(' /GET Requests', () => {
-  it('it should return a 200 OK response', (done) => {
-    url.get('/requests')
-      .set('Accept', 'application/json')
-      .expect(200, done);
+chai.use(chaiHttp);
+
+describe('Requests Controller', () => {
+  describe('/GET requests without JWT authentication', () => {
+    it('it should GET all the requests', () => chai.request(app)
+      .get('/api/requests')
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json; /* eslint-disable-line no-unused-expressions */
+      }));
   });
 });
+
