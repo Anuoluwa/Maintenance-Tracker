@@ -9,7 +9,9 @@ import Request from '../controllers/requestController';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
+
 chai.use(chaiHttp);
+
 
 describe('Requests Controller Test Suite', () => {
   describe('/GET requests without JWT authentication', () => {
@@ -25,22 +27,7 @@ describe('Requests Controller Test Suite', () => {
         expect(res).to.have.status(404);
       }));
   });
-
-  // describe('/GET/requests/:id ', () => {
-  //   it('it should GET a request by the given id', () => chai.request(app)
-  //     .get(`api/requests/${request.id}`)
-  //     .then((res) => {
-  //       expect(res).have.status(200);
-  //       expect(res).to.have.property('id').equal('2');
-  //       expect(res).to.have.property('date').equal('15-05-2018');
-  //       expect(res).to.have.property('department').equal('Peoples and Culture');
-  //       expect(res).to.have.property('location').equal('Receptionist desk');
-  //       expect(res).to.have.property('contact').equal('0908765344');
-  //       expect(res).to.have.property('status').equal('Approved');
-  //     }));
-  // });
 });
-
 
 /* ===== Integration testing====  */
 describe('Integrationtesting with supertest for requestController', () => {
@@ -53,6 +40,8 @@ describe('Integrationtesting with supertest for requestController', () => {
         .expect(200, done);
     });
   });
+
+  // * Single requests  */
   describe('GET /api/requests:id', () => {
     it('respond with json containing a single request', (done) => {
       request(app)
@@ -60,6 +49,41 @@ describe('Integrationtesting with supertest for requestController', () => {
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200, done);
+    });
+    it('should be an object with keys and values', (done) => {
+      request(app)
+        .get('/api/requests/10')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('id');
+          expect(res.body.id).to.not.equal(null);
+          expect(res.body).to.have.property('date');
+          expect(res.body.date).to.not.equal(null);
+          expect(res.body).to.have.property('department');
+          expect(res.body.department).to.not.equal(null);
+          expect(res.body).to.have.property('location');
+          expect(res.body.location).to.not.equal(null);
+          expect(res.body).to.have.property('contact');
+          expect(res.body.contact).to.not.equal(null);
+          expect(res.body).to.have.property('status');
+          expect(res.body.status).to.not.equal(null);
+          done();
+        });
+    });
+    it('should have a 11 digit contact phone number', (done) => {
+      request(app)
+        .get('/api/requests/10')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body.date).to.equal('15-05-2018');
+          expect(res.body.department.length).to.below(30);
+          expect(res.body.location.length).to.below(30);
+          expect(res.body.contact.length).to.below(12);
+          expect(res.body.status.length).to.below(20);
+          done();
+        });
     });
   });
 });
