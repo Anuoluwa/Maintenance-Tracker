@@ -1,6 +1,6 @@
 const requests = [
   {
-    id: 1,
+    id: 2,
     date: '15-05-2018',
     department: 'Peoples and Culture',
     Location: 'Receptionist desk',
@@ -8,7 +8,7 @@ const requests = [
     status: 'Approved',
   },
   {
-    id: 2,
+    id: 4,
     date: '15-05-2018',
     department: 'Operations',
     Location: 'Kitchen',
@@ -16,12 +16,28 @@ const requests = [
     status: 'Resolved',
   },
   {
-    id: 1,
+    id: 3,
     date: '15-05-2018',
     department: 'Procurement',
     Location: 'DEsk 123',
     contact: '0908765344',
     status: 'Disapproved',
+  },
+  {
+    id: 6,
+    date: '15-05-2018',
+    department: 'Procurement',
+    Location: 'DEsk 123',
+    contact: '0908765344',
+    status: 'Disapproved',
+  },
+  {
+    id: 10,
+    date: '15-05-2018',
+    department: 'Operations',
+    Location: 'Kitchen',
+    contact: '0908765344',
+    status: 'Resolved',
   },
 ];
 

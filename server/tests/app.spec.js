@@ -53,10 +53,10 @@ describe('Integrationtesting with supertest for requestController', () => {
         .expect(200, done);
     });
   });
-  describe('GET /user/:id', () => {
+  describe('GET /api/requests:id', () => {
     it('respond with json containing a single request', (done) => {
       request(app)
-        .get('/api/requests/R001')
+        .get('/api/requests/:id')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200, done);
