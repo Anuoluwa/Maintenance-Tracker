@@ -1,4 +1,6 @@
-# Maintenance-Tracker     https://travis-ci.org/Anuoluwa/Maintenance-Tracker.svg?branch=develop
+# Maintenance-Tracker  
+
+[![Build Status](https://travis-ci.org/Anuoluwa/Maintenance-Tracker.svg?branch=develop)](https://travis-ci.org/Anuoluwa/Maintenance-Tracker)
 
 ## Project Overview
 Maintenance Tracker App is an application that provides users with the ability to reach out to
