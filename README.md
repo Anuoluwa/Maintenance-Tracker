@@ -1,8 +1,8 @@
 # Maintenance-Tracker  
 
-[![Build Status](https://travis-ci.org/Anuoluwa/Maintenance-Tracker.svg?branch=develop)](https://travis-ci.org/Anuoluwa/Maintenance-Tracker)
+[![Build Status](https://travis-ci.org/Anuoluwa/Maintenance-Tracker.svg?branch=develop)](https://travis-ci.org/Anuoluwa/Maintenance-Tracker)   [![Coverage Status](https://coveralls.io/repos/github/Anuoluwa/Maintenance-Tracker/badge.svg?branch=157560551-user-able-create-request)](https://coveralls.io/github/Anuoluwa/Maintenance-Tracker?branch=157560551-user-able-create-request)
 
-[![Coverage Status](https://coveralls.io/repos/github/Anuoluwa/Maintenance-Tracker/badge.svg?branch=157560551-user-able-create-request)](https://coveralls.io/github/Anuoluwa/Maintenance-Tracker?branch=157560551-user-able-create-request)
+
 
 ## Project Overview
 Maintenance Tracker App is an application that provides users with the ability to reach out to
