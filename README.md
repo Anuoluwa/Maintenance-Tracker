@@ -17,8 +17,6 @@ status of their request.
 6. The admin should be able to filter requests
 7. The user can view all his/her requests
 
-### User Stories 
-PT Links https://www.pivotaltracker.com/n/projects/2170249
 
 ### Development
 Each feature has a separate file, which can be open by any browser.
