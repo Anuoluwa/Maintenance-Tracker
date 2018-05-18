@@ -7,3 +7,5 @@ before_install:
 notifications:
   email: 
     false
+after_success:
+  npm run coverage
