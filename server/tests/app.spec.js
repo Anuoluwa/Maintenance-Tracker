@@ -88,3 +88,25 @@ describe('Integrationtesting with supertest for requestController', () => {
   });
 });
 
+describe('POST /requests', () => {
+  const requestItem = {
+    id: 2,
+    date: '15-05-2018',
+    department: 'Peoples and Culture',
+    location: 'Receptionist desk',
+    contact: '09012345678',
+    status: 'Approved',
+  };
+  it('responds with json', (done) => {
+    request(app)
+      .post('/api/requests')
+      .send(requestItem)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .end((err, res) => { // eslint-disable-line consistent-return
+        if (err) return done(err);
+        done();
+      });
+  });
+});
+
