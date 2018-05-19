@@ -102,7 +102,7 @@ describe(' POST /requests', () => {
       .post('/api/requests')
       .send(requestItem)
       .set('Accept', 'application/json')
-      .expect(200)
+      .expect(201)
       .end((err, res) => { // eslint-disable-line consistent-return
         if (err) return done(err);
         done();
@@ -110,51 +110,29 @@ describe(' POST /requests', () => {
   });
 });
 
-describe('PUT /users/requests/<requestId> to modify a request', () => {
-  const requestItem = {
-    id: 1,
-    date: '15-05-2018',
-    department: 'Peoples and Culture',
-    location: 'Receptionist desk',
-    contact: '09012345678',
-    status: 'Approved',
-  };
+describe('PUT /requests/<requestId> to modify a request', () => {
+  it('it should respond with json to modify', (done) => {
+    request(app)
+      .put('/api/requests/1')
+      .set('Accept', 'application/json')
+      .expect(202, done);
+  });
   it('respond with 201 created', (done) => {
     request(app)
       .put('/api/requests/1')
-      .send(requestItem)
+      .send({
+        id: 2,
+        date: '15-05-2018',
+        department: 'Peoples and Culture',
+        location: 'Receptionist desk',
+        contact: '09012345678',
+        status: 'Approved',
+      })
       .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done);
-  });
-  it('should be updated with new inputs', (done) => {
-    request(app)
-      .put('/api/requests/1')
-      .set('Accept', 'application/json')
-      .send(requestItem)
-      .expect(200)
-      .end((err, res) => {
-        expect(res.body.id).to.equal('1');
-        expect(res.body.date).to.equal('15-05-2018');
-        expect(res.body.department).to.equal('Peoples and Culture');
-        expect(res.body.location).to.equal('Receptionist desk');
-        expect(res.body.contact).to.equal('09012345678r');
-        expect(res.body.status).to.equal('Approved');
+      .expect(202)
+      .end((err) => { // eslint-disable-line consistent-return
+        if (err) return done(err);
         done();
       });
-  });
-  describe('', () => {
-    it('respond with json user not found', (done) => {
-      request(app)
-        .get('/api/requests/idisnonexisting')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(404) // expecting HTTP status code
-        .expect('"Request not found, please try again"') // expecting content value
-        .end((err) => { // eslint-disable-line consistent-return
-          if (err) return done(err);
-          done();
-        });
-    });
   });
 });
