@@ -88,7 +88,7 @@ describe('Integrationtesting with supertest for requestController', () => {
   });
 });
 
-describe('POST /requests', () => {
+describe(' POST /requests', () => {
   const requestItem = {
     id: 2,
     date: '15-05-2018',
@@ -102,7 +102,7 @@ describe('POST /requests', () => {
       .post('/api/requests')
       .send(requestItem)
       .set('Accept', 'application/json')
-      .expect(200)
+      .expect(201)
       .end((err, res) => { // eslint-disable-line consistent-return
         if (err) return done(err);
         done();
@@ -110,3 +110,29 @@ describe('POST /requests', () => {
   });
 });
 
+describe('PUT /requests/<requestId> to modify a request', () => {
+  it('it should respond with json to modify', (done) => {
+    request(app)
+      .put('/api/requests/1')
+      .set('Accept', 'application/json')
+      .expect(202, done);
+  });
+  it('respond with 201 created', (done) => {
+    request(app)
+      .put('/api/requests/1')
+      .send({
+        id: 2,
+        date: '15-05-2018',
+        department: 'Peoples and Culture',
+        location: 'Receptionist desk',
+        contact: '09012345678',
+        status: 'Approved',
+      })
+      .set('Accept', 'application/json')
+      .expect(202)
+      .end((err) => { // eslint-disable-line consistent-return
+        if (err) return done(err);
+        done();
+      });
+  });
+});

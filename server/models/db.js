@@ -1,5 +1,13 @@
 const requests = [
   {
+    id: 1,
+    date: '15-05-2018',
+    department: 'Peoples and Culture',
+    location: 'Receptionist desk',
+    contact: '09012345678',
+    status: 'Approved',
+  },
+  {
     id: 2,
     date: '15-05-2018',
     department: 'Peoples and Culture',
