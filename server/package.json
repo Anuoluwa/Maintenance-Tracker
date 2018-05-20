@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "eslint-watch": "^3.1.4",
+    "jsonwebtoken": "^8.2.1",
     "nodemon": "^1.17.4"
   },
   "nyc": {
@@ -43,7 +44,7 @@
     "lines": 100,
     "statements": 100
   },
-  "include":[
+  "include": [
     "server"
   ]
 }

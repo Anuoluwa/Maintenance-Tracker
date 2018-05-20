@@ -1,16 +1,29 @@
 import express from 'express';
+import jwt from 'jsonwebtoken';
 import app from '../app';
 import router from '../routes/route';
+import login from '../middlewares/auth';
+import verifyToken from '../middlewares/verifyToken';
+
 /* eslint eqeqeq: ["error", "smart"] */
 import requests from '../models/db';
 
 
 export default class Request {
   static getRequests(req, res) {
-    if (!requests) {
-      res.status(404).json({ message: 'No requests found' });
-    } else res.json(requests);
+    jwt.verify(req.token, 'secretkey', (err, authData) => {
+      if (err) {
+        res.sendStatus(403);
+      } else if (!requests) {
+        res.status(404).json({ message: 'No requests found' });
+      } else res.json(requests);
+    });
   }
+  // static getRequests(req, res) {
+  //   if (!requests) {
+  //     res.status(404).json({ message: 'No requests found' });
+  //   } else res.json(requests);
+  // }
 
   static getRequest(req, res) {
     const requestId = req.params.id;
