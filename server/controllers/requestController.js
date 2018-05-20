@@ -1,3 +1,4 @@
+import express from 'express';
 import app from '../app';
 import router from '../routes/route';
 /* eslint eqeqeq: ["error", "smart"] */
@@ -26,13 +27,13 @@ export default class Request {
     const request = {
       id: requests.length + 1,
       date: req.body.date,
-      department: req.department,
+      department: req.body.department,
       location: req.body.location,
       contact: req.body.contact,
       status: req.body.status,
     };
     requests.push(request);
-    res.sendStatus(201).json(request);
+    res.status(201).json(request);
   }
 
   static editRequest(req, res) {
@@ -49,7 +50,7 @@ export default class Request {
         contact: req.body.contact,
         status: req.body.status,
       });
-      res.sendStatus(201);
+      res.status(201);
     } else {
       const index = requests.indexOf(request);
       const keys = Object.keys(req.body);
@@ -57,7 +58,7 @@ export default class Request {
         request[key] = req.body[key];
       });
       requests[index] = request;
-      res.sendStatus(202).json(requests[index]); // sendStatus will return http code and its message
+      res.status(202).json(requests[index]); // sendStatus will return http code and its message
     }
   }
 }
