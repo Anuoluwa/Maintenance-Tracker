@@ -1,8 +1,4 @@
 
-// import express from 'express';
-// import jwt from 'jsonwebtoken';
-// import app from '../app';
-
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers.authorization;
   if (typeof bearerHeader !== 'undefined') {

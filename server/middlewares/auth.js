@@ -1,9 +1,5 @@
-// import express from 'express';
 import jwt from 'jsonwebtoken';
-// import app from '../app';
 
-
-// for user route
 function login(req, res) {
   const user = {
     id: 1,
