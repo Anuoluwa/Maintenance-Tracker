@@ -33,16 +33,14 @@ describe('Requests Controller Test Suite', () => {
     }); // end
   });
   describe('GET /requests', () => {
-    // addresses 1st bullet point: if the user is logged in we should get a 200 status code
-    it('should return a 200 response if the user is logged in', (done) => {
-      request(app)
-        .get('api/requests')
-        .send({
-          username: 'admin',
-          email: 'admin@gmail.com',
-        })
-        .expect(200);
-      done();
+    it('should return a 200 response if the user is logged ', () => {
+      chai.request(app)
+        .put('api/users')
+        .send({ password: '123', confirmPassword: '123' })
+        .end((err, res) => {
+          expect(err).to.be.null;
+          expect(res).to.have.status(200);
+        });
     });
     it('it should GET Error404 with invalid path', () => chai.request(app)
       .get('/api/!requests')
