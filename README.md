@@ -1,6 +1,6 @@
 # Maintenance-Tracker  
 
-[![Build Status](https://travis-ci.org/Anuoluwa/Maintenance-Tracker.svg?branch=develop)](https://travis-ci.org/Anuoluwa/Maintenance-Tracker)   [![Coverage Status](https://coveralls.io/repos/github/Anuoluwa/Maintenance-Tracker/badge.svg?branch=157560551-user-able-create-request)](https://coveralls.io/github/Anuoluwa/Maintenance-Tracker?branch=157560551-user-able-create-request)
+[![Build Status](https://travis-ci.org/Anuoluwa/Maintenance-Tracker.svg?branch=develop)](https://travis-ci.org/Anuoluwa/Maintenance-Tracker)   [![Coverage Status](https://coveralls.io/repos/github/Anuoluwa/Maintenance-Tracker/badge.svg?branch=157560551-user-able-create-request)](https://coveralls.io/github/Anuoluwa/Maintenance-Tracker?branch=157560551-user-able-create-request)   [![Test Coverage](https://api.codeclimate.com/v1/badges/0b3a083ce39aa00803b0/test_coverage)](https://codeclimate.com/github/Anuoluwa/Maintenance-Tracker/test_coverage)   [![Maintainability](https://api.codeclimate.com/v1/badges/0b3a083ce39aa00803b0/maintainability)](https://codeclimate.com/github/Anuoluwa/Maintenance-Tracker/maintainability)
 
 
 
