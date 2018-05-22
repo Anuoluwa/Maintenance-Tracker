@@ -298,10 +298,11 @@ header .header-request {
     line-height: 24px;
 }
 
-.index-links div a {
+.index-links div h2 {
     font-weight: 500;
     font-size: 24px;
 }
+
 
 @media only screen and (min-width: 1000px) {
     .wrapper {
