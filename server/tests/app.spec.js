@@ -1,17 +1,11 @@
 import { expect } from 'chai';
 import request from 'supertest';
-import express from 'express';
 import app from '../app';
-import Request from '../controllers/requestController';
-// import router from '../routes/route';
-// import requests from '../models/db';
-// import chaiHttp from 'chai-http';
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
-
 chai.use(chaiHttp);
-
 
 describe('Requests Controller Test Suite', () => {
   const userCredentials = {
@@ -87,7 +81,7 @@ describe('Requests Controller Test Suite', () => {
           .send(requestItem)
           .set('Accept', 'application/json')
           .expect(201)
-          .end((err, res) => { // eslint-disable-line consistent-return
+          .end((err, res) => {
             if (err) return done(err);
             done();
           });
@@ -104,17 +98,9 @@ describe('Requests Controller Test Suite', () => {
       it('respond with 201 created', (done) => {
         request(app)
           .put('/api/v1/requests/1')
-          // .send({
-          //   id: 2,
-          //   date: '15-05-2018',
-          //   department: 'Peoples and Culture',
-          //   location: 'Receptionist desk',
-          //   contact: '09012345678',
-          //   status: 'Approved',
-          // })
           .set('Accept', 'application/json')
           .expect(202)
-          .end((err) => { // eslint-disable-line consistent-return
+          .end((err) => {
             if (err) return done(err);
             done();
           });

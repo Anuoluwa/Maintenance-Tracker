@@ -1,11 +1,4 @@
-// import express from 'express';
 import jwt from 'jsonwebtoken';
-// import app from '../app';
-// import router from '../routes/route';
-// import login from '../middlewares/auth';
-// import verifyToken from '../middlewares/verifyToken';
-
-/* eslint eqeqeq: ["error", "smart"] */
 import requests from '../models/db';
 
 
@@ -22,9 +15,7 @@ export default class Request {
 
   static getRequest(req, res) {
     const requestId = req.params.id;
-    /* eslint-disable */
     const requestItem = requests.filter(request => request.id == requestId)[0];
-    /* eslint-enable */
     jwt.verify(req.token, 'secretkey', (err, authData) => {
       if (err) {
         res.status(403).json({ message: 'Access forbidden' });
@@ -49,9 +40,7 @@ export default class Request {
 
   static editRequest(req, res) {
     const requestId = req.params.id;
-    /* eslint-disable */
     const request = requests.filter(r => r.id == requestId)[0];
-    /* eslint-enable */
     if (!request) {
       requests.push({
         id: requests.length + 1,
