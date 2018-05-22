@@ -69,7 +69,7 @@ export default class Request {
         request[key] = req.body[key];
       });
       requests[index] = request;
-      res.status(202).json(requests[index]); // sendStatus will return http code and its message
+      res.status(202).json(requests[index]);
     }
   }
 }
