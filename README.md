@@ -20,3 +20,9 @@ status of their request.
 
 ### Development
 Each feature has a separate file, which can be open by any browser.
+
+### Challenge 2
+○ Get all the requests for a logged in user
+○ Get a request for a logged in user
+○ Create a request.
+○ Modify a request
