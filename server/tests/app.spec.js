@@ -1,17 +1,11 @@
 import { expect } from 'chai';
 import request from 'supertest';
-import express from 'express';
 import app from '../app';
-import Request from '../controllers/requestController';
-// import router from '../routes/route';
-// import requests from '../models/db';
-// import chaiHttp from 'chai-http';
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
-
 chai.use(chaiHttp);
-
 
 describe('Requests Controller Test Suite', () => {
   const userCredentials = {
@@ -33,41 +27,39 @@ describe('Requests Controller Test Suite', () => {
     }); // end
   });
   describe('GET /requests', () => {
-    // addresses 1st bullet point: if the user is logged in we should get a 200 status code
-    it('should return a 200 response if the user is logged in', (done) => {
-      request(app)
-        .get('api/requests')
-        .send({
-          username: 'admin',
-          email: 'admin@gmail.com',
-        })
-        .expect(200);
-      done();
+    it('should return a 200 response if the user is logged ', () => {
+      chai.request(app)
+        .get('api/v1/users')
+        .send({ password: '123', confirmPassword: '123' })
+        .end((err, res) => {
+          expect(err).to.be.null;
+          expect(res).to.have.status(200);
+        });
     });
     it('it should GET Error404 with invalid path', () => chai.request(app)
-      .get('/api/!requests')
+      .get('/api/v1/!requests')
       .then((res) => {
         expect(res).to.have.status(404);
       }));
     it('respond with json', (done) => {
       request(app)
-        .get('/api/requests')
+        .get('/api/v1/requests')
         .set('Accept', 'application/json')
         .expect('Content-Type', /text/)
         .expect(403, done);
     });
     it('respond with 404 for invalid url', (done) => {
       request(app)
-        .get('/api/invalidurl')
+        .get('/api/v1/invalidurl')
         .set('Accept', 'application/json')
         .expect(404, done);
     }); // / requests
 
     // * Single requests  */
-    describe('GET /api/requests:id', () => {
+    describe('GET /api/v1/requests:id', () => {
       it('respond with json containing a single request', (done) => {
         request(app)
-          .get('/api/requests/:id')
+          .get('/api/v1/requests/:id')
           .set('Accept', 'application/json')
           .expect('Content-Type', /text/)
           .expect(403, done);
@@ -85,11 +77,11 @@ describe('Requests Controller Test Suite', () => {
       };
       it('responds with json', (done) => {
         request(app)
-          .post('/api/requests')
+          .post('/api/v1/requests')
           .send(requestItem)
           .set('Accept', 'application/json')
           .expect(201)
-          .end((err, res) => { // eslint-disable-line consistent-return
+          .end((err, res) => {
             if (err) return done(err);
             done();
           });
@@ -99,24 +91,16 @@ describe('Requests Controller Test Suite', () => {
     describe('PUT /requests/<requestId> to modify a request', () => {
       it('it should respond with json to modify', (done) => {
         request(app)
-          .put('/api/requests/1')
+          .put('/api/v1/requests/1')
           .set('Accept', 'application/json')
           .expect(202, done);
       });
       it('respond with 201 created', (done) => {
         request(app)
-          .put('/api/requests/1')
-          // .send({
-          //   id: 2,
-          //   date: '15-05-2018',
-          //   department: 'Peoples and Culture',
-          //   location: 'Receptionist desk',
-          //   contact: '09012345678',
-          //   status: 'Approved',
-          // })
+          .put('/api/v1/requests/1')
           .set('Accept', 'application/json')
           .expect(202)
-          .end((err) => { // eslint-disable-line consistent-return
+          .end((err) => {
             if (err) return done(err);
             done();
           });

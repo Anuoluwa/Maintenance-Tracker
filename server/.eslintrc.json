@@ -16,6 +16,8 @@
         "linebreak-style": ["error", "windows"],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "no-unused-vars": "warn",
-        "no-unused-expressions":"warn"
+        "no-unused-expressions":"warn",
+        "consistent-return": "warn",
+        "eqeqeq": [1,"allow-null"]
     }
 }
