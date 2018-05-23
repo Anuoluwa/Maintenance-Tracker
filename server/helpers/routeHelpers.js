@@ -17,9 +17,9 @@ export const schemas = {
   authSchema: Joi.object().keys({
     date: Joi.string().required(),
     department: Joi.string().min(3).max(30).required(),
-    location: Joi.string().alphanum().min(3).max(30)
+    location: Joi.string().min(3).max(30)
       .required(),
-    contact: Joi.number().min(11).max(11).required(),
+    contact: Joi.string().min(11).max(11).required(),
     status: Joi.string().min(7).max(15).required(),
   }),
 };
