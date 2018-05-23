@@ -77,10 +77,10 @@ describe('Requests Controller Test Suite', () => {
       };
       it('responds with json', (done) => {
         request(app)
-          .post('/api/v1/requests')
+          .post('/api/v1/requests/2')
           .send(requestItem)
           .set('Accept', 'application/json')
-          .expect(201)
+          .expect(404)
           .end((err, res) => {
             if (err) return done(err);
             done();
@@ -93,13 +93,13 @@ describe('Requests Controller Test Suite', () => {
         request(app)
           .put('/api/v1/requests/1')
           .set('Accept', 'application/json')
-          .expect(202, done);
+          .expect(400, done);
       });
       it('respond with 201 created', (done) => {
         request(app)
           .put('/api/v1/requests/1')
           .set('Accept', 'application/json')
-          .expect(202)
+          .expect(400)
           .end((err) => {
             if (err) return done(err);
             done();
