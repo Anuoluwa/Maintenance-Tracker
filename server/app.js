@@ -1,15 +1,20 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import router from './routes/route';
+import { Client } from 'pg';
+
+const pg = require('pg');
 
 const app = express();
-const port = 3000;
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use('/api/v1/', router);
+const client = new Client('postgres://aptserver:anuoluwa@localhost/maintrackerdb');
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+client.connect((err) => {
+  console.log(err);
 });
 
-export default app;
+// client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
+//   console.log(err ? err.stack : res.rows[0].message);
+//   client.end();
+// });
+
+app.listen(3000, () => {
+  console.log('app started at 3000');
+});
