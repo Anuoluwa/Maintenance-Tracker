@@ -3,7 +3,7 @@ CREATE DATABASE maintenanceTracker;
 
 \c maintenanceTracker;
 
-CREATE TABLE users (
+CREATE TABLE mt_users (
   user_id SERIAL PRIMARY KEY,
   email VARCHAR NOT NULL,
   passowrd VARCHAR NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE users (
   last_update timestamp without time zone DEFAULT now(),
 );
 
-CREATE TABLE requests (
+CREATE TABLE mt_requests (
     request_id SERIAL PRIMARY KEY DEFAULT  NOT NULL,
     user_id smallint NOT NULL,
     title character varying(45) NOT NULL,
