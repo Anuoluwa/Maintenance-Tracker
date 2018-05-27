@@ -1,27 +1,15 @@
 import express from 'express';
-import lookupRequest from '../middlewares/lookupRequest';
+import Request from '../controllers/requestController';
 
-const requestRouter = express.Router();
+const router = express.Router();
 
 
-requestRouter.get('/requests', (req, res) => {
+router.get('/', Request.getAllRequests);
 
-});
+router.put('/:request_id/approve ', Request.updateApprove);
 
-requestRouter.get('/requests/request_id', lookupRequest, (req, res) => {
+router.put('/:request_id/disapprove', Request.updateDisapprove);
 
-});
+router.put('/:request_id/resolve', Request.updateResolve);
 
-requestRouter.put('/requests/request_id/approve ', lookupRequest, (req, res) => {
-  res.json(req.requests);
-});
-
-requestRouter.put('/requests/request_id/disapprove', lookupRequest, (req, res) => {
-  res.json(req.requests);
-});
-
-requestRouter.put('/requests/request_id/resolve', lookupRequest, (req, res) => {
-  res.json(req.requests);
-});
-
-export default requestRouter;
+export default router;
