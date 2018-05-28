@@ -1,20 +1,23 @@
 import express from 'express';
-import { Client } from 'pg';
+import bodyParser from 'body-parser';
+import pg from 'pg';
+import index from './models/index';
+import user from './routes/user';
+import request from './routes/request';
 
-const pg = require('pg');
+const conString = 'postgres://fmlaewzf:5bho1VnanYoL9IEUHogtc9SQUhwuJ5Ns@stampy.db.elephantsql.com:5432/fmlaewzf';
+
 
 const app = express();
-const client = new Client('postgres://aptserver:anuoluwa@localhost/maintrackerdb');
 
-client.connect((err) => {
-  console.log(err);
-});
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/users', user);
+app.use('/requests', request);
 
-// client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
-//   console.log(err ? err.stack : res.rows[0].message);
-//   client.end();
-// });
 
 app.listen(3000, () => {
   console.log('app started at 3000');
 });
+
+export default app;
