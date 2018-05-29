@@ -1,23 +1,21 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import pg from 'pg';
-import index from './models/index';
+import index from './db';
 import user from './routes/user';
 import request from './routes/request';
 
-const conString = 'postgres://fmlaewzf:5bho1VnanYoL9IEUHogtc9SQUhwuJ5Ns@stampy.db.elephantsql.com:5432/fmlaewzf';
-
 
 const app = express();
-
+const port = 9000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/users', user);
-app.use('/requests', request);
+
+app.use('/', request);
+// app.use('/users', user);
 
 
-app.listen(3000, () => {
-  console.log('app started at 3000');
+app.listen(port, () => {
+  console.log(`app started at localost ${port}`);
 });
 
 export default app;
