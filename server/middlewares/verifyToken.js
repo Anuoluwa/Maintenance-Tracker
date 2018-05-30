@@ -1,13 +1,12 @@
+import jwt from 'jsonwebtoken';
 
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers.authorization;
-  if (typeof bearerHeader !== 'undefined') {
-    const bearer = bearerHeader.split(' ');
-    const bearerToken = bearer[1];
-    req.token = bearerToken;
+  jwt.verify(bearerHeader, process.env.SECRET_KEY, (err, decoded) => {
+    if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+    req.usermail = decoded.email;
+    req.userid = decoded.id;
     next();
-  } else {
-    res.sendStatus(403);
-  }
+  });
 }
 export default verifyToken;
