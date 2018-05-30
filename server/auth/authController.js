@@ -23,9 +23,8 @@ export default class Auth {
     });
 
     jwt.sign({ email: req.body.email }, process.env.SECRET_KEY, { expiresIn: '2days' }, (err, token) => {
-      console.log(req.body.email, ' ', process.env.SECRET_KEY, token);
       if (err) {
-        console.log(err);
+        throw err;
       }
       res.json({
         token,
@@ -35,8 +34,3 @@ export default class Auth {
   // res.status(200).send({ auth: true, token }).json({ message: 'Successful!' });
   }
 }
-// function validUser(user) {
-//   const validUsername = typeof user.username === 'string' && user.username.trim() != '';
-//   const validEmail = typeof user.email === 'string' && user.email.trim() != '';
-//  const validPassword = typeof user.password === 'string' && user.password.trim() != ''
-// && user.password.trim().length >= 6; return validUsername && validEmail && validPassword; }
