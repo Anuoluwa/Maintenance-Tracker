@@ -4,6 +4,18 @@ const db = require('../db/index');
 
 export default class User {
   static getRequests(req, res) {
+    const useremail = req.body;
+    const userid = req.body;
+    const sql = {
+      text: 'SELECT * FROM requests WHERE user_id = $1',
+      value: [userid],
+    };
+    db.query(sql, (err, response) => {
+      if (err) {
+        throw err;
+      }
+      return res.status(200).json(response.rows);
+    });
   }
 
   static createRequests(req, res) {
