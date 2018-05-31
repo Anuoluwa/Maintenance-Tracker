@@ -1,4 +1,5 @@
 import express from 'express';
+import verifyToken from '../middlewares/verifyToken';
 
 const db = require('../db/index');
 
@@ -12,13 +13,40 @@ export default class Request {
       return res.status(200).json(response.rows);
     });
   }
-  static updateApprove(req, res) {
-
+  static editApprove(req, res) {
+    const sql = {
+      text: 'UPDATE requests SET status=$1 WHERE request_id=$2  RETURNING *',
+      values: ['Approved', req.params.id],
+    };
+    db.query(sql, (err, response) => {
+      if (err) {
+        throw err;
+      }
+      return res.status(200).json(response.rows);
+    });
   }
-  static updateDisapprove(req, res) {
-
+  static editDisapprove(req, res) {
+    const sql = {
+      text: 'UPDATE requests SET status=$1 WHERE request_id=$2  RETURNING *',
+      values: ['Disapproved', req.params.id],
+    };
+    db.query(sql, (err, response) => {
+      if (err) {
+        throw err;
+      }
+      return res.status(200).json(response.rows);
+    });
   }
-  static updateResolve(req, res) {
-
+  static editResolve(req, res) {
+    const sql = {
+      text: 'UPDATE requests SET status=$1 WHERE request_id=$2 RETURNING *',
+      values: ['Resolved', req.params.id],
+    };
+    db.query(sql, (err, response) => {
+      if (err) {
+        throw err;
+      }
+      return res.status(200).json(response.rows);
+    });
   }
 }
