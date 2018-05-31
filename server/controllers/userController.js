@@ -22,10 +22,9 @@ export default class User {
     const useremail = req.body;
     const userid = req.body;
     const sql = {
-      text: `INSERT INTO requests (user_id, title, operations, description, location, created, status) 
-      VALUES($1, $2, $3, $4, $5, Now(), $6) RETURNING *`,
+      text: `INSERT INTO requests (title, operations, description, location, created, status) 
+      VALUES($1, $2, $3, $4, Now(), $5) RETURNING *`,
       values: [
-        userid,
         req.body.title,
         req.body.operations,
         req.body.description,
