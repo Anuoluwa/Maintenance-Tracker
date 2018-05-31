@@ -19,16 +19,7 @@ export default class Auth {
       if (err) {
         throw err;
       }
-      return res.status(200);
-    });
-
-    jwt.sign({ id: req.body.user_id, email: req.body.email }, process.env.SECRET_KEY, { expiresIn: '2days' }, (err, token) => {
-      if (err) {
-        throw err;
-      }
-      res.json({
-        token,
-      });
+      return res.status(200).json(response.rows);
     });
   }
   static login(req, res) {
@@ -41,10 +32,13 @@ export default class Auth {
         throw err;
       }
       const passwordIsValid = bcrypt.compareSync(req.body.password, response.rows[0].password);
-      if (req.body.email == response.rows[0].email && passwordIsValid) {
-        const token = jwt.sign({ email: req.body.email }, process.env.SECRET_KEY, {
-          expiresIn: 86400,
-        });
+      if (req.body.email === response.rows[0].email && passwordIsValid) {
+        const token = jwt.sign(
+          { id: response.rows[0].user_id, email: req.body.email }, process.env.SECRET_KEY,
+          {
+            expiresIn: 86400,
+          },
+        );
         res.status(200).send({ auth: true, token });
       } else if (req.body.email !== response.rows[0].email || !passwordIsValid) {
         return res.status(404).send({ auth: false, token: null });
