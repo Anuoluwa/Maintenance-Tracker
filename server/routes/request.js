@@ -1,4 +1,5 @@
 import express from 'express';
+import verifyToken from '../middlewares/verifyToken';
 import Request from '../controllers/requestController';
 
 const router = express.Router();
@@ -6,11 +7,10 @@ const router = express.Router();
 
 router.get('/requests', Request.getAllRequests);
 
-router.put('/:request_id/approve ', (req, res) => {
-});
+router.put('/requests/:id/approve ', Request.editApprove);
 
-router.put('/:request_id/disapprove', Request.updateDisapprove);
+router.put('/requests/:id/disapprove', Request.editDisapprove);
 
-router.put('/:request_id/resolve', Request.updateResolve);
+router.put('/requests/:id/resolve', Request.editResolve);
 
 export default router;
