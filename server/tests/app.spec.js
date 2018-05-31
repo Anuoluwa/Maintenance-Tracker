@@ -50,8 +50,5 @@ describe('Test suite for version two', () => {
       });
     });
   });
-  // describe('Test requests', () => {
-
-  // });
 });
 
