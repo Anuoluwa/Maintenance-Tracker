@@ -4,11 +4,10 @@ const db = require('../db/index');
 
 export default class User {
   static getRequests(req, res) {
-    const useremail = req.body;
-    const userid = req.body;
+    const { user_id } = req.userid;
     const sql = {
       text: 'SELECT * FROM requests WHERE user_id = $1',
-      value: [userid],
+      value: [req.userid],
     };
     db.query(sql, (err, response) => {
       if (err) {
@@ -19,12 +18,12 @@ export default class User {
   }
 
   static createRequests(req, res) {
-    const useremail = req.body;
-    const userid = req.body;
+    const { userid } = req.userid;
     const sql = {
-      text: `INSERT INTO requests (title, operations, description, location, created, status) 
-      VALUES($1, $2, $3, $4, Now(), $5) RETURNING *`,
+      text: `INSERT INTO requests (user_id, title, operations, description, location, created, status) 
+      VALUES($1, $2, $3, $4, $5, Now(), $6 ) RETURNING *`,
       values: [
+        req.userid,
         req.body.title,
         req.body.operations,
         req.body.description,
@@ -41,11 +40,10 @@ export default class User {
   }
 
   static getRequest(req, res) {
-    const useremail = req.body;
-    const userid = req.body;
+    const { userid } = req.userid;
     const sql = {
       text: 'SELECT * FROM requests WHERE request_id=$1 AND user_id=$2',
-      values: [req.params.id, userid],
+      values: [req.params.id, req.userid],
     };
     db.query(sql, (err, response) => {
       if (err) {
@@ -55,9 +53,9 @@ export default class User {
     });
   }
   static editRequest(req, res) {
-    const userid = req.body;
+    const { userid } = req.userid;
     const sql = {
-      text: 'UPDATE requests SET title=$1, operations=$2, description=$3, location=$4, status=$5 WHERE request_id=$5',
+      text: 'UPDATE requests SET title=$1, operations=$2, description=$3, location=$4, status=$5 WHERE request_id=$6',
       values: [
         req.body.title,
         req.body.operations,
@@ -71,7 +69,7 @@ export default class User {
       if (err) {
         throw err;
       }
-      return res.status(200).json({ message: 'Update successful' });
+      return res.status(200).json({ message: 'Updated successfully' });
     });
   }
 }
