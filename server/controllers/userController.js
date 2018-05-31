@@ -51,10 +51,26 @@ export default class User {
       if (err) {
         throw err;
       }
-      return res.status(200).json(response.rows);
+      return res.status(200).json(response.rows[0]);
     });
   }
   static editRequest(req, res) {
-
+    const userid = req.body;
+    const sql = {
+      text: 'UPDATE requests SET title=$1, operations=$2, description=$3, location=$4 WHERE request_id=$5',
+      values: [
+        req.body.title,
+        req.body.operations,
+        req.body.description,
+        req.body.location,
+        req.params.id,
+      ],
+    };
+    db.query(sql, (err, response) => {
+      if (err) {
+        throw err;
+      }
+      return res.status(200).json({ message: 'Update successful' });
+    });
   }
 }
