@@ -29,10 +29,11 @@ export default class User {
   }
 
   static getRequest(req, res) {
+    const useremail = req.body;
     const userid = req.body;
     const sql = {
-      text: 'SELECT * FROM requests WHERE request_id=$1',
-      values: [req.params.id],
+      text: 'SELECT * FROM requests WHERE request_id=$1 AND user_id=$2',
+      values: [req.params.id, userid],
     };
     db.query(sql, (err, response) => {
       if (err) {
