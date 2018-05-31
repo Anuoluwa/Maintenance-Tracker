@@ -15,11 +15,11 @@ export function validateBody(schema) {
 }
 export const schemas = {
   authSchema: Joi.object().keys({
-    title: Joi.string().min(6).max(30).required(),
-    operation: Joi.string().min(6).max(30).required(),
-    description: Joi.string().min(6).max(50).required(),
-    location: Joi.string().min(3).max(30)
+    username: Joi.string().alphanum().min(4).max(30)
       .required(),
-    status: Joi.string().min(3).max(15).required(),
+    email: Joi.string().email(),
+    password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
+
   }),
 };
+
