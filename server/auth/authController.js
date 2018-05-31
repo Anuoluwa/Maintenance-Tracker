@@ -22,7 +22,7 @@ export default class Auth {
       return res.status(200);
     });
 
-    jwt.sign({ email: req.body.email }, process.env.SECRET_KEY, { expiresIn: '2days' }, (err, token) => {
+    jwt.sign({ id: req.body.user_id, email: req.body.email }, process.env.SECRET_KEY, { expiresIn: '2days' }, (err, token) => {
       if (err) {
         throw err;
       }
