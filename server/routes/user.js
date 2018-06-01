@@ -3,6 +3,7 @@ import verifyToken from '../middlewares/verifyToken';
 import User from '../controllers/userController';
 import { validateBody, schemas } from '../helpers/routeHelpers';
 
+
 const router = express.Router();
 
 router.post('/requests', verifyToken, validateBody(schemas.authSchema), User.createRequests);
