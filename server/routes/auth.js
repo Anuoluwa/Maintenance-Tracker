@@ -4,7 +4,7 @@ import { validateBody, schemas } from '../helpers/routeHelpersAuth';
 
 const router = express.Router();
 
-router.post('/signup', validateBody(schemas.authSchema), Auth.signUp);
-router.post('/login', validateBody(schemas.authSchema), Auth.login);
+router.post('/signup', Auth.signUp);
+router.post('/login', Auth.login);
 
 export default router;
