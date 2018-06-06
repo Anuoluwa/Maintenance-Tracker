@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import app from '../app';
 
+
 const db = require('../db/index');
 
 const router = express.Router();
@@ -12,14 +13,14 @@ export default class Auth {
   static signUp(req, res) {
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
     const sql = {
-      text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING user_id, email',
+      text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
       values: [req.body.username, req.body.email, hashedPassword],
     };
     db.query(sql, (err, response) => {
       if (err) {
-        throw err;
+        return res.status(500).json({ message: 'Email and username already taken' });
       }
-      return res.status(200).json(response.rows);
+      return res.status(200).json(response.rows[0]);
     });
   }
   static login(req, res) {
