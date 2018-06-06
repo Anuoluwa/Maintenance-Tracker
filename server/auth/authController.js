@@ -43,12 +43,9 @@ export default class Auth {
         return res.json({ message: 'Email and password do not exist, please sign up' });
       }
       const passwordIsValid = bcrypt.compareSync(req.body.password, response.rows[0].password);
-<<<<<<< HEAD
-=======
       if (req.body.email !== response.rows[0].email || !passwordIsValid) {
         return res.status(404).send({ auth: false, token: null, message: 'Unauthorized! Invalid email or password' });
       }
->>>>>>> input-validation-157998049
       if (req.body.email == response.rows[0].email && passwordIsValid) {
         const token = jwt.sign(
           { id: response.rows[0].user_id, email: req.body.email }, process.env.SECRET_KEY,
@@ -56,14 +53,7 @@ export default class Auth {
             expiresIn: 86400,
           },
         );
-<<<<<<< HEAD
-        res.status(200).send({ auth: true, token });
-      }
-      if (req.body.email !== response.rows[0].email || !passwordIsValid) {
-        return res.status(404).send({ auth: false, token: null });
-=======
         res.status(200).send({ auth: true, token, message: 'Copy and keep token for protected endpoints' });
->>>>>>> input-validation-157998049
       }
     });
   }
