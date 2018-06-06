@@ -1,7 +1,7 @@
 import express from 'express';
 import verifyToken from '../middlewares/verifyToken';
 import User from '../controllers/userController';
-import { validateBody, schemas } from '../helpers/routeHelpersAuth';
+import { validateBody, schemas } from '../helpers/routeHelpers';
 
 
 const router = express.Router();

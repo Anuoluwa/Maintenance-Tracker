@@ -6,8 +6,7 @@ export function validateBody(schema) {
     if (result.error) {
       return res.status(400).json({
         message: ['Fields must not be empty',
-          'Fields must not contain special characters; alphabets only',
-          'Each field must at least 7 characters long',
+          'Fields be must at least 7 characters long',
         ],
         Message: result.error,
       });
@@ -21,12 +20,11 @@ export function validateBody(schema) {
 }
 export const schemas = {
   authSchema: Joi.object().keys({
-    title: Joi.string().regex(/^[a-zA-Z]{7,30}$/).required(),
-    operations: Joi.string().regex(/^[a-zA-Z]{7,30}$/).required(),
-    description: Joi.string().regex(/^[a-zA-Z]{7,30}$/).required(),
-    location: Joi.string().regex(/^[a-zA-Z]{7,30}$/).required(),
-    status: Joi.string().regex(/^[a-zA-Z]{7,30}$/).required(),
-    password: Joi.string().regex(/^[a-zA-Z]{7,30}$/).required(),
+    title: Joi.string().min(6).max(40).required(),
+    operations: Joi.string().min(8).max(30).required(),
+    description: Joi.string().min(8).max(100).required(),
+    location: Joi.string().min(3).max(30).required(),
+    status: Joi.string().min(6).max(20).required(),
   }),
 };
 

@@ -55,7 +55,7 @@ export default class User {
   static editRequest(req, res) {
     const { userid } = req.userid;
     const sql = {
-      text: 'UPDATE requests SET title=$1, operations=$2, description=$3, location=$4, status=$5 WHERE request_id=$6',
+      text: 'UPDATE requests SET title=$1, operations=$2, description=$3, location=$4, status=$5 WHERE request_id=$6 RETURNING *',
       values: [
         req.body.title,
         req.body.operations,
@@ -67,9 +67,9 @@ export default class User {
     };
     db.query(sql, (err, response) => {
       if (err) {
-        throw err;
+        return res.status(404).json({ message: 'Item not found' });
       }
-      return res.status(200).json({ message: 'Updated successfully' });
+      return res.status(200).json({ message: 'Updated successfully', Updated: response.rows[0] });
     });
   }
 }
