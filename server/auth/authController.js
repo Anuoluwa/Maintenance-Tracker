@@ -36,7 +36,6 @@ export default class Auth {
     };
     db.query(sql, (err, response) => {
       if (err) {
-        // throw err;
         return res.json({ message: 'Email and password do not exist' });
       }
       if (!response.rows[0]) {

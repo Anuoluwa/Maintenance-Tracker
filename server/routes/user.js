@@ -6,9 +6,9 @@ import { validateBody, schemas } from '../helpers/routeHelpersAuth';
 
 const router = express.Router();
 
-router.post('/requests', verifyToken, User.createRequests);
+router.post('/requests', verifyToken, validateBody(schemas.authSchema), User.createRequests);
 router.get('/requests', verifyToken, User.getRequests);
 router.get('/requests/:id', verifyToken, User.getRequest);
-router.put('/requests/:id', verifyToken, User.editRequest);
+router.put('/requests/:id', verifyToken, validateBody(schemas.authSchema), User.editRequest);
 
 export default router;
