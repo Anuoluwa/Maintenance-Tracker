@@ -25,6 +25,7 @@ export default class Request {
       return res.status(200).json(response.rows);
     });
   }
+
   static editDisapprove(req, res) {
     const sql = {
       text: 'UPDATE requests SET status=$1 WHERE request_id=$2  RETURNING *',

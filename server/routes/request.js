@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/requests', Request.getAllRequests);
 
-router.put('/requests/:id/approve ', Request.editApprove);
+router.put('/requests/:id/approve', Request.editApprove);
 
 router.put('/requests/:id/disapprove', Request.editDisapprove);
 
