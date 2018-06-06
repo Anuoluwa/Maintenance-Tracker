@@ -31,6 +31,9 @@ export default class Auth {
     db.query(sql, (err, response) => {
       if (err) {
         // throw err;
+        return res.json({ message: 'Email and password do not exist' });
+      }
+      if (!response.rows[0]) {
         return res.json({ message: 'Email and password do not exist, please sign up' });
       }
       const passwordIsValid = bcrypt.compareSync(req.body.password, response.rows[0].password);
@@ -45,12 +48,7 @@ export default class Auth {
           },
         );
         res.status(200).send({ auth: true, token, message: 'Copy and keep token for protected endpoints' });
-      } else {
-        return res.json({ message: 'Email and password do not exist, please sign up' });
       }
-      // if (req.body.email !== response.rows[0].email || !passwordIsValid) {
-      //   return res.status(404).send({ auth: false, token: null, message: 'Unauthorized'});
-      // }
     });
   }
 }
