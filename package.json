@@ -4,11 +4,15 @@
   "description": "api endpoints ",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
 <<<<<<< HEAD:server/package.json
     "start": "nodemon --watch app.js --exec babel-node -- app.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text --require babel-register mocha \" tests/**/*.spec.js\" --reporter progress --exit",
 =======
     "start": "nodemon --watch app.js --exec babel-node -- server/app.js",
+=======
+    "start": "babel-node -- server/app.js",
+>>>>>>> input-validation-157998049
     "test": "nyc --reporter=html --reporter=text --require babel-register mocha \" tests/**/*.spec.js\" --reporter progress --exit",
 >>>>>>> input-validation-157998049:package.json
     "coverage": "nyc report --reporter=text-lcov | coveralls",
