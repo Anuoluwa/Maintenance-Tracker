@@ -9,8 +9,8 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": " esw app.js models routes tests --color",
     "lint-watch": "npm run lint -- --watch"
-  }, 
-  "engines":{
+  },
+  "engines": {
     "node": "v9.11.1"
   },
   "author": "anuoluwa apiti",
@@ -46,7 +46,8 @@
     "nodemon": "^1.17.4",
     "pg": "^7.4.3",
     "pg-connection-string": "^2.0.0",
-    "pg-pool": "^2.0.3"
+    "pg-pool": "^2.0.3",
+    "swagger-ui-express": "^3.0.9"
   },
   "nyc": {
     "check coverage": true,

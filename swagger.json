@@ -1,0 +1,520 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is a api server Trackanance server.  You can find out more about     Swagger at https://tracknance.herokuapp.com",
+      "version": "2.0.0",
+      "title": "Tracknance",
+      "termsOfService": "https://tracknance.herokuapp.com/terms",
+      "contact": {
+        "email": "apiteam@tracknance.herokuapp.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "host": "tracknance.herokuapp.com",
+    "basePath": "/api/v2",
+    "tags": [
+      {
+        "name": "auth",
+        "description": "Everything about your users' authentication",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "www.tracknance.herokuapp.com/auth/signup"
+        }
+      },
+      {
+        "name": "requests",
+        "description": "Access to  requests"
+      },
+      {
+        "name": "users",
+        "description": "Operations about requests",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "www.tracknance.herokuapp.com/requests"
+        }
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/auth/signup": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "Create credentials for users to authentication to generate token",
+          "description": "Authentication for the protected users' resources",
+          "operationId": "signup",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Pet object that needs to be added to the store",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Created successfully"
+            },
+            "404": {
+              "description": "Not found"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/auth/login": {
+        "post": {
+          "tags": [
+            "auth"
+          ],
+          "summary": "login with an existing credentials",
+          "description": "Login with existing email and password",
+          "operationId": "login",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Pet object that needs to be added to the store",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successfully logged in"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "404": {
+              "description": "Email or pssword no found"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/requests/": {
+        "get": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Returns all requests with user ID",
+          "description": "Returns requests with status",
+          "operationId": "getREquests",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/requests/:id/approve": {
+        "put": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Update existing requests' status with approve",
+          "description": "Admin routes to update requests' status",
+          "operationId": "editAprove",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            },
+            "400": {
+              "description": "Invalid Order"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/requests/:id/disapprove": {
+        "put": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Update existing requests' status with disapprove",
+          "description": "For ",
+          "operationId": "editDisapprove",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "orderId",
+              "in": "path",
+              "description": "ID of pet that needs to be fetched",
+              "required": true,
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 1,
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Order not found"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/requests/:id/resolve": {
+        "put": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Update existing requests' status with resolve",
+          "description": "",
+          "operationId": "editResolve",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "orderId",
+              "in": "path",
+              "description": "ID of the order that needs to be deleted",
+              "required": true,
+              "type": "integer",
+              "minimum": 1,
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Order not found"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/users/requests": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Create requests with user ID",
+          "description": "This can only be done by the logged in user.",
+          "operationId": "createUser",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/users/requests/:id": {
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Get one list of requewst with given input user ID",
+          "description": "",
+          "operationId": "getRequest",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "List of user object",
+              "required": true,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/users"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/users/requests/": {
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Returns lists of requests",
+          "description": "",
+          "operationId": "getRequests",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "List of user object",
+              "required": true,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/users"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/users/requests/:id/": {
+        "put": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Updated request",
+          "description": "This can only be done by the logged in user.",
+          "operationId": "editRequest",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "username",
+              "in": "path",
+              "description": "name that need to be updated",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Updated user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/users"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid user supplied"
+            },
+            "404": {
+              "description": "User not found"
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      }
+    },
+    "securityDefinitions": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "definitions": {
+      "users": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string",
+            "format": ""
+          },
+          "email": {
+            "type": "string",
+            "format": ""
+          },
+          "password": {
+            "type": "string",
+            "format": ""
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "requests": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "operations": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    }
+  }
